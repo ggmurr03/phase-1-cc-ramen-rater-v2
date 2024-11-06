@@ -10,12 +10,23 @@ const addSubmitListener = () => {
 }
 
 const displayRamens = () => {
-  // Add code
+  const ramenMenuDiv = document.querySelector('#ramen-menu')
+  console.log(ramenMenuDiv)
+  return fetch("http://localhost:3000/ramens")
+  .then(resp=>resp.json())
+  .then(ramens =>{
+    ramens.forEach((ramen)=>{
+      let img = document.createElement("img")
+      img.src = `${ramen.image}`
+      ramenMenuDiv.appendChild(img)
+      // img.addEventListener("click", event=>{}
+         
+})})
 };
 
 const main = () => {
-  // Invoke displayRamens here
-  // Invoke addSubmitListener here
+  displayRamens()
+//  addSubmitListener()
 }
 
 main()
